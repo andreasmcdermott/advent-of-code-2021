@@ -49,14 +49,12 @@ const createPilotForPart2 = () => {
 const pilot1 = createPilotForPart1();
 const pilot2 = createPilotForPart2();
 
-utils
-  .runForEachLine("./day2-input.txt", (line) => {
-    const [action, units] = line.split(" ");
-    const amt = parseInt(units, 10);
-    if (!action || isNaN(amt)) return;
-    pilot1[action](amt);
-    pilot2[action](amt);
-  })
-  .then(() => {
-    utils.printResults([pilot1.pos, pilot1.sum], [pilot2.pos, pilot2.sum]);
-  });
+utils.toArray("./day2-input.txt").forEach((line) => {
+  const [action, units] = line.split(" ");
+  const amt = parseInt(units, 10);
+  if (!action || isNaN(amt)) return;
+  pilot1[action](amt);
+  pilot2[action](amt);
+});
+
+utils.printResults([pilot1.pos, pilot1.sum], [pilot2.pos, pilot2.sum]);
