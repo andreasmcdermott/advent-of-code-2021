@@ -1,4 +1,4 @@
-const utils = require("./utils");
+const { input, print } = require("utils");
 
 const createPilotForPart1 = () => {
   let horizontal = 0;
@@ -49,7 +49,7 @@ const createPilotForPart2 = () => {
 const pilot1 = createPilotForPart1();
 const pilot2 = createPilotForPart2();
 
-utils.toArray("./day2-input.txt").forEach((line) => {
+input().forEach((line) => {
   const [action, units] = line.split(" ");
   const amt = parseInt(units, 10);
   if (!action || isNaN(amt)) return;
@@ -57,4 +57,4 @@ utils.toArray("./day2-input.txt").forEach((line) => {
   pilot2[action](amt);
 });
 
-utils.printResults([pilot1.pos, pilot1.sum], [pilot2.pos, pilot2.sum]);
+print([pilot1.pos, pilot1.sum], [pilot2.pos, pilot2.sum]);

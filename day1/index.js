@@ -1,8 +1,6 @@
-const utils = require("./utils");
+const { input, print } = require("utils");
 
-const MEASUREMENTS = utils
-  .toArray("./day1-input.txt")
-  .map((line) => parseInt(line, 10));
+const MEASUREMENTS = input().map((line) => parseInt(line, 10));
 
 // Part 1
 const [part1Result] = MEASUREMENTS.reduce(
@@ -24,4 +22,4 @@ for (let i = 2; i < MEASUREMENTS.length; ++i) {
   last = curr;
 }
 
-utils.printResults(part1Result, part2Result);
+print(part1Result, part2Result);

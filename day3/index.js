@@ -1,6 +1,6 @@
-const utils = require("./utils");
+const { input, print } = require("utils");
 
-const LINES = utils.toArray("./day3-input.txt");
+const LINES = input();
 
 // Part 1:
 const [gammaRate, epsilonRate] = LINES.reduce((acc, line) => {
@@ -37,4 +37,4 @@ const filterLines = (filterFn) => {
 const oxygen = filterLines((v, count) => v === (count < 0 ? "0" : "1"));
 const co2 = filterLines((v, count) => v === (count < 0 ? "1" : "0"));
 
-utils.printResults(gammaRate * epsilonRate, oxygen * co2);
+print(gammaRate * epsilonRate, oxygen * co2);
