@@ -18,7 +18,7 @@ const loop = (x1, y1, x2, y2, fn) => {
   fn(x, y);
 };
 
-function part1(rawLines, includeDiagonal) {
+function part1and2(rawLines, includeDiagonal) {
   const result = rawLines
     .map((line) => /^(\d+),(\d+) -> (\d+),(\d+)$/.exec(line))
     .map(([, x1, y1, x2, y2]) => [
@@ -38,8 +38,8 @@ function part1(rawLines, includeDiagonal) {
   return Object.values(result).filter((v) => v >= 2).length;
 }
 
-let resultPart1 = part1([...LINES], false);
+let resultPart1 = part1and2([...LINES], false);
 console.log("\n");
-let resultPart2 = part1([...LINES], true);
+let resultPart2 = part1and2([...LINES], true);
 
 print(resultPart1, resultPart2);
